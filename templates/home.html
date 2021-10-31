@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content  %}
+<head>
+<title>{{title}} </title>
+</head>
+
+<body>
+	<h1>Welcome {{name}}, here are top destinations! </h1>
+	<a href"https://google.com">goooogle</a>
+	<ul>
+	{% for city in cities: %}
+	<li>{{cities}}</li>
+	{% endfor %}
+	</ul>
+</body>
+
