@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content  %}
+
+<body>
+	<h1>Welcome {{name}}, here are top destinations! </h1>
+	<a href="https://google.com">goooogle</a>
+	<ul>
+	{% for city in cities: %}	
+	<li>{{ city }}</li>
+	{% endfor %}
+	</ul>
+	<form>
+		<label for="cname">City Name</label>
+		<input type="text" id="cname" name="cname"><br>
+		<label for="crank">City Rank</label>
+		<input type="text" id="crank" name="crank"><br>
+		<label for=="visited">Visited</label>
+		<input type="checkbox" id="visited" name="visisted" value="visited"><br>
+		<input type="submit" value="Submit">
+	</form>
+</body>
+{% endblock %}
