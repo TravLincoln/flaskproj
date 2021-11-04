@@ -5,8 +5,19 @@
 		 <title>{{ title }}!</title>
 		 {% else %}
 		  <title >No Name </title>
-		  {% endif %} 
+		  {% endif %}
+
+		  
          </head>
+	 {% with messages=get_flashed_messages() %}
+	 {% if messages %}
+	 <ul>
+		 {% for m in messages %}
+		 <li> {{m}} </li>
+		 {% endfor %}
+	</ul>
+	{% endif %}
+	{% endwith %}
 	 <body>
         {% block content %}
 	{% endblock %}	 

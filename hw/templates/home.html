@@ -9,14 +9,19 @@
 	<li>{{ city }}</li>
 	{% endfor %}
 	</ul>
-	<form>
-		<label for="cname">City Name</label>
-		<input type="text" id="cname" name="cname"><br>
-		<label for="crank">City Rank</label>
-		<input type="text" id="crank" name="crank"><br>
-		<label for=="visited">Visited</label>
-		<input type="checkbox" id="visited" name="visisted" value="visited"><br>
-		<input type="submit" value="Submit">
+	<form method="POST" novalidate>
+		{{ form.hidden_tag()}}
+
+		<p> {{form.cname.label}}
+		{{ form.cname(size=32) }}</p>
+
+		<p> {{ form.rank.label }}
+		{{ form.rank(size=32) }}</p>
+		
+		<p> {{ form.visited.label }}
+		{{ form.visited() }}</p>
+
+		<p> {{ form.submit() }}</p>
 	</form>
 </body>
 {% endblock %}

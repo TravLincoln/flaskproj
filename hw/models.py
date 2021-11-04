@@ -8,8 +8,8 @@ from hw import login
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(64), unique=True, index=True)
-    email = db.Column(db.String(128), unique=True)
+    cname = db.Column(db.String(64), unique=True, index=True)
+    rank = db.Column(db.String(128), unique=True)
     password = db.Column(db.String(128))
     posts = db.relationship('Post', backref='author', lazy = 'dynamic')
 
@@ -20,7 +20,7 @@ class User(UserMixin, db.Model):
         return check_password_hash(self.password, password)
 
     def __repr__(self):
-        return f'<User {self.id}: {self.username}>'
+        return f'<User {self.id}: {self.cname}>'
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)

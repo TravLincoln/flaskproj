@@ -19,4 +19,4 @@ db = SQLAlchemy(hw_obj)
 login = LoginManager(hw_obj)
 login.login_view = 'login'
 
-from hw import models, forms
+from hw import models, forms,routes
