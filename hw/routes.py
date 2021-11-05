@@ -3,7 +3,7 @@ from flask import render_template, flash, redirect
 
 from hw import db
 from hw.models import User, Post
-from hw.forms import CityForm
+from hw.forms import TopCities
 
 #@myapp_obj.route("/loggedin")
 #@login_required
@@ -22,8 +22,9 @@ def hello():
     title = 'My HomePage'
     topcities = ["Paris","London","Los Angeles","Tokyo"]
     posts = [{'author': 'john', 'body': 'Beautiful day in Portland!'},{'author': 'Susan', 'body': 'Today was a good day!'}]
-    form = CityForm()
+    form = TopCities()
     if form.validate_on_submit():
+        user = User.query.filter_by(cname=form.cname.data).first()
         flash(f'City Chosen:  {form.cname.data}, rank={form.rank.data}')
         return redirect('/')
     return render_template("home.html",form=form, name=name, people=people, title=title,cities=topcities, posts=posts)
